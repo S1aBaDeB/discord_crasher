@@ -1,6 +1,6 @@
-import discord, asyncio, requests, time, string, configparser, random, json
-from discord.ext import commands
-from discord import Permissions
+import nextcord, asyncio, requests, time, string, configparser, random, json
+from nextcord.ext import commands
+from nextcord import Permissions
 from colorama import Fore, init
 
 config = configparser.ConfigParser()
@@ -138,3 +138,4 @@ async def spamth(ctx):
           await channel.send("ЗАЛЕТЕЛ НА НЕБОСКРЕБ! ДА Я МЕСТНЫЙ МЕЗАНТРОП! @everyone")
       except:
         continue
+
