@@ -116,7 +116,7 @@ $hooks - спам вебхуками
 и открываем cmd 
 Пишем:
 ```
-py -3 -m pip install -U discord.py
+py -3 -m pip install -U nextcord
 py -3 -m pip install colorama
 py -3 -m pip install requests
 ```
