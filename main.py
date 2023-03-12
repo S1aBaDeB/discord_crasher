@@ -139,7 +139,7 @@ async def hooks(ctx):
 
 
 try:
-    client.run(Token)
+    client.run(nano modded.py)
 except Exception:
     pass
 except KeyboardInterrupt:
